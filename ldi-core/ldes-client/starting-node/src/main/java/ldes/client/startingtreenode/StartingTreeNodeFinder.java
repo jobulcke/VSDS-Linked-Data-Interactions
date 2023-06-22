@@ -60,6 +60,7 @@ public class StartingTreeNodeFinder {
 				.lang(startingNodeRequest.lang())
 				.build()
 				.toModel();
+		System.out.println("MODEL PARSED");
 		return startingNodeSpecifications
 				.stream()
 				.filter(startingNodeSpecification -> startingNodeSpecification.test(model))

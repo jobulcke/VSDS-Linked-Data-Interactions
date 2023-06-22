@@ -4,6 +4,7 @@ import be.vlaanderen.informatievlaanderen.ldes.ldi.types.LdiTransformer;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 
 public class SparqlConstructTransformer implements LdiTransformer {
@@ -18,7 +19,7 @@ public class SparqlConstructTransformer implements LdiTransformer {
 	@Override
 	public Model apply(Model linkedDataModel) {
 		try (QueryExecution qexec = QueryExecutionFactory.create(query, linkedDataModel)) {
-			Model resultModel = qexec.execConstruct();
+			ResultSet resultModel = qexec.execSelect();
 			if (includeOriginal) {
 				resultModel.add(linkedDataModel);
 			}
