@@ -58,8 +58,7 @@ public class LdioKafkaOutProcessorConfigurator implements LdioOutputConfigurator
 		configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
 		var authStrategy = KafkaAuthStrategy.from(config.getOptionalProperty(SECURITY_PROTOCOL)
-				.orElse(NO_AUTH.name()))
-				.orElseThrow(() -> new SecurityProtocolNotSupportedException(SECURITY_PROTOCOL));
+				.orElse(NO_AUTH.name()));
 
 		if (SASL_SSL_PLAIN.equals(authStrategy)) {
 			final String user = config.getProperty(SASL_JAAS_USER);
