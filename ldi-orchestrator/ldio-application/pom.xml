@@ -407,6 +407,16 @@
                 </dependency>
             </dependencies>
         </profile>
+        <profile>
+            <id>ldio-rabbitmq</id>
+            <dependencies>
+                <dependency>
+                    <groupId>be.vlaanderen.informatievlaanderen.ldes.ldio</groupId>
+                    <artifactId>ldio-rabbitmq</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
     </profiles>
 
 </project>
